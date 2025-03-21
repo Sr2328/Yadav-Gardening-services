@@ -1,0 +1,152 @@
+
+\about.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Yadav Gardening Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/about.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="./IMAGES/Green White Modern Clean Botanical Garden Logo.png" alt="YGS Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="brand">YGS</span>
+                    <span class="tagline">Transform Your Garden</span>
+                </div>
+                <button class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <h1>Our Story</h1>
+                <p>Creating Beautiful Gardens Since 2010</p>
+            </div>
+        </section>
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>About Yadav Gardening Services</h2>
+                        <p>With over a decade of experience in transforming outdoor spaces, we take pride in delivering exceptional gardening services. Our team of skilled professionals is dedicated to creating and maintaining beautiful landscapes.</p>
+                        <div class="stats">
+                            <div class="stat-card">
+                                <span class="number">500+</span>
+                                <span class="label">Happy Clients</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="number">1000+</span>
+                                <span class="label">Projects Done</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="number">15+</span>
+                                <span class="label">Years Experience</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="./IMAGES/Green White Modern Clean Botanical Garden Logo.png" alt="Our Team">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="business-card" id="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <div class="card-showcase">
+                    <div class="card-display">
+                        <div class="card-front">
+                            <img src="./IMAGES/3.png" alt="YGS Business Card Front" class="card-img">
+                        </div>
+                        <div class="card-back">
+                            <img src="./IMAGES/Green White Modern Clean Botanical Garden Logo.png" alt="YGS Business Card Back" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="contact-details">
+                            <h3>Direct Contact</h3>
+                            <a href="tel:+12345678900" class="contact-link">
+                                <i class="fas fa-phone"></i>
+                                <span>+1 234 567 8900</span>
+                            </a>
+                            <a href="mailto:info@yadavgardening.com" class="contact-link">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@yadavgardening.com</span>
+                            </a>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="gallery" id="gallery">
+            <div class="container">
+                <h2>Our Work</h2>
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="gardens">Gardens</button>
+                    <button class="filter-btn" data-filter="landscaping">Landscaping</button>
+                    <button class="filter-btn" data-filter="maintenance">Maintenance</button>
+                </div>
+                <div class="gallery-grid">
+                    <!-- Gallery items will be loaded via JavaScript -->
+                </div>
+                <button class="load-more">
+                    <span>Load More</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="./images/logo.png" alt="YGS Logo" class="footer-logo">
+                    <p>Transform your outdoor space with our expert services</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@yadavgardening.com</p>
+                    <p><i class="fas fa-location-dot"></i> 123 Garden Street, City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Yadav Gardening Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/about.js"></script>
+</body>
+</html>
