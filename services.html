@@ -5,10 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YGS - Professional Gardening Services</title>
     <link rel="stylesheet" href="./css/services.css">
+    <link rel="stylesheet" href="./css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="./ygs-img/Sophisticated Garden Design Logo.png" alt="YGS Logo">
+                <span>TGG</span>
+            </a>
+        </div>
+
+        <div class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="./services.html" class="nav-link">Services</a></li>
+                <li><a href="./pages/design.html" class="nav-link">Designs</a></li>
+                <li><a href="./shop.html" class="nav-link">Shop</a></li>
+                <li><a href="./about.html" class="nav-link">About</a></li>
+                <li><a href="./contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-actions">
+            <button class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </button>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
     <!-- Hero Section -->
 <section class="hero">
     <div class="hero-overlay"></div>
@@ -51,9 +89,10 @@
         </div>
     </div>
     <video class="hero-video" autoplay loop muted playsinline>
-        <source src="./videos/garden-bg.mp4" type="video/mp4">
+        <source src="./ygs-img/" type="video/mp4">
     </video>
 </section>
+
 
     <!-- Services Grid -->
 <section class="services">
@@ -61,8 +100,9 @@
         <h2>Our Gardening Services</h2>
         <p>Transform your space with our professional gardening solutions</p>
     </div>
-    
-    <div class="services-container">
+
+
+     <div class="services-container">
   <!-- 1. Landscape Design & Planning -->
 <div class="service-card">
     <div class="service-image">
@@ -230,43 +270,310 @@
         <a href="#contact" class="service-btn">Learn More</a>
     </div>
 </div>
+    </div>
+</section>
 
-     
-       
 
-        <!-- Add more service cards following the same structure -->
+<!-- Process-timeline -->
+ <!-- Step-1 -->
+<section class="process-timeline">
+    <div class="section-header">
+        <h2>Your Journey to a Dream Garden</h2>
+        <p>Experience our proven 5-step process to transform your space</p>
+    </div>
+
+    <div class="timeline-container">
+        <div class="timeline-item">
+            <div class="timeline-number">1</div>
+            <div class="timeline-content">
+                <div class="timeline-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div class="timeline-details">
+                    <span class="timeline-tag">Step 1</span>
+                    <h3>Book a Consultation</h3>
+                    <p class="timeline-desc">Schedule your free consultation with our garden design experts</p>
+                    <div class="timeline-features">
+                        <div class="feature-item">
+                            <i class="fas fa-clock"></i>
+                            <span>30-min free session</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-video"></i>
+                            <span>Virtual or in-person</span>
+                        </div>
+                    </div>
+                    <button class="timeline-cta">Schedule Now</button>
+                </div>
+            </div>
+        </div>
+
+<!-- Step-2 -->
+        <div class="timeline-item">
+            <div class="timeline-number">2</div>
+            <div class="timeline-content">
+                <div class="timeline-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="timeline-details">
+                    <span class="timeline-tag">Step 2</span>
+                    <h3>Site Visit & Analysis</h3>
+                    <p class="timeline-desc">Comprehensive evaluation of your space's potential</p>
+                    <div class="timeline-features">
+                        <div class="feature-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <span>Site measurements</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-sun"></i>
+                            <span>Sunlight analysis</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-water"></i>
+                            <span>Soil testing</span>
+                        </div>
+                    </div>
+                    <div class="timeline-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Includes detailed site report</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Sttep-3 -->
+<div class="timeline-item">
+  <div class="timeline-number">3</div>
+  <div class="timeline-content">
+    <div class="timeline-icon">
+      <i class="fas fa-paint-brush"></i>
+    </div>
+    <div class="timeline-details">
+      <span class="timeline-tag">Step 3</span>
+      <h3>Design Preview</h3>
+      <p class="timeline-desc">View a digital preview of how your garden will look using our visualizer tool.</p>
+      <div class="timeline-features">
+        <div class="feature-item">
+          <i class="fas fa-image"></i>
+          <span>Real photo overlays</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-layer-group"></i>
+          <span>Design options to choose</span>
+        </div>
+      </div>
+      <button class="timeline-cta">Preview Design</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step-4 -->
+ <div class="timeline-item">
+  <div class="timeline-number">4</div>
+  <div class="timeline-content">
+    <div class="timeline-icon">
+      <i class="fas fa-tools"></i>
+    </div>
+    <div class="timeline-details">
+      <span class="timeline-tag">Step 4</span>
+      <h3>Implementation</h3>
+      <p class="timeline-desc">We install your garden with quality materials and expert precision.</p>
+      <div class="timeline-features">
+        <div class="feature-item">
+          <i class="fas fa-truck-loading"></i>
+          <span>Materials & setup included</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-users-cog"></i>
+          <span>Professional landscaping team</span>
+        </div>
+      </div>
+      <button class="timeline-cta">Start Project</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step-5 -->
+<div class="timeline-item">
+  <div class="timeline-number">5</div>
+  <div class="timeline-content">
+    <div class="timeline-icon">
+      <i class="fas fa-leaf"></i>
+    </div>
+    <div class="timeline-details">
+      <span class="timeline-tag">Step 5</span>
+      <h3>Maintenance</h3>
+      <p class="timeline-desc">Enjoy your garden while we keep it fresh with seasonal care services.</p>
+      <div class="timeline-features">
+        <div class="feature-item">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Monthly plant care</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-phone-alt"></i>
+          <span>Support on call</span>
+        </div>
+      </div>
+      <button class="timeline-cta">Get Support</button>
+    </div>
+  </div>
+</div>
+    </div>
+</section>
+
+<!-- Designs Offer section -->
+ <section class="design-styles">
+    <div class="section-header">
+        <h2>Design Styles We Offer</h2>
+        <p>Find the perfect style that matches your vision</p>
+    </div>
+
+    <div class="styles-container">
+        <!-- Zen Garden -->
+        <div class="style-card">
+            <div class="style-image">
+                <img src="./ygs-img/designs-img/zen-garden.jpg" alt="Zen Garden">
+            </div>
+            <div class="style-content">
+                <div class="style-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3>Zen Garden</h3>
+                <p>Create a peaceful sanctuary with minimalist designs, rock gardens, and carefully placed elements.</p>
+                <ul class="style-features">
+                    <li><i class="fas fa-check"></i>Rock arrangements</li>
+                    <li><i class="fas fa-check"></i>Bamboo elements</li>
+                    <li><i class="fas fa-check"></i>Sand patterns</li>
+                </ul>
+                <a href="./pages/design.html" class="style-btn">Explore More</a>
+            </div>
+        </div>
+
+        <!-- Tropical Retreat -->
+        <div class="style-card">
+            <div class="style-image">
+                <img src="./images/styles/tropical.jpg" alt="Tropical Retreat">
+            </div>
+            <div class="style-content">
+                <div class="style-icon">
+                    <i class="fas fa-umbrella-beach"></i>
+                </div>
+                <h3>Tropical Retreat</h3>
+                <p>Transform your space into a lush paradise with exotic plants and vibrant colors.</p>
+                <ul class="style-features">
+                    <li><i class="fas fa-check"></i>Exotic plants</li>
+                    <li><i class="fas fa-check"></i>Water features</li>
+                    <li><i class="fas fa-check"></i>Natural stone paths</li>
+                </ul>
+                <a href="./pages/design.html" class="style-btn">Explore More</a>
+            </div>
+        </div>
+</div>
+</section>
+
+<!--  Plant cataglogue section -->
+<section class="plant-grid-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Plant Collection</h2>
+            <p>Find the perfect plant for your space</p>
+        </div>
+
+        <!-- Filter-Section -->
+        <div class="filters">
+            <div class="filter-group">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Plants</button>
+                    <button class="filter-btn" data-filter="indoor">Indoor</button>
+                    <button class="filter-btn" data-filter="outdoor">Outdoor</button>
+                    <button class="filter-btn" data-filter="flowering">Flowering</button>
+                </div>
+            </div>
+<!-- Filter-Controls -->
+            <div class="filter-controls">
+                <select id="sunlightFilter" class="filter-select">
+                    <option value="">Sunlight Needs</option>
+                    <option value="low">Low Light</option>
+                    <option value="medium">Medium Light</option>
+                    <option value="high">Bright Light</option>
+                </select>
+
+                <select id="waterFilter" class="filter-select">
+                    <option value="">Water Needs</option>
+                    <option value="low">Low Water</option>
+                    <option value="medium">Medium Water</option>
+                    <option value="high">High Water</option>
+                </select>
+<!-- Price Range -->
+                <div class="price-range">
+                    <span>Max Price: $</span>
+                    <input type="number" id="priceFilter" value="200" min="0" max="200" step="10">
+                </div>
+            </div>
+        </div>
+
+        <div id="plantGrid" class="plant-grid">
+            <!-- Plants will be loaded here dynamically -->
+        </div>
+
+<!-- Alert Message  -->
+        <div id="noResults" class="no-results hidden">
+            <p>No plants match your current filters.</p>
+        </div>
     </div>
 </section>
 
     <!-- Design Preview Tool -->
-    <section class="design-tool">
-        <h2>Try Our Garden Visualizer</h2>
-        <p>Upload a photo of your space and see how different layouts would look in real-time.</p>
-        <div class="tool-container">
-            <div class="upload-area">
-                <input type="file" id="spacePhoto" accept="image/*" hidden>
-                <div class="upload-box" id="uploadBox">
+   <section class="design-tool" id="designTool">
+    <div class="design-tool-header">
+        <h2>Garden Design Visualizer</h2>
+        <p>Upload your space photo and preview different garden designs</p>
+    </div>
+
+    <div class="design-tool-container">
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="imageInput" accept="image/*" hidden>
+                <div class="upload-placeholder" id="uploadPlaceholder">
                     <i class="fas fa-cloud-upload-alt"></i>
-                    <p>Drop your photo here or click to upload</p>
+                    <p>Drag & Drop your photo here</p>
+                    <span>or</span>
+                    <button class="upload-btn" id="uploadBtn">Choose File</button>
+                </div>
+                <div class="upload-preview" id="uploadPreview" hidden>
+                    <img src="" alt="Uploaded Space" id="uploadedImage">
                 </div>
             </div>
-            <div class="design-controls">
-                <select id="designStyle">
-                    <option value="">Select Design Style</option>
-                    <option value="zen">Zen Garden</option>
-                    <option value="tropical">Tropical Paradise</option>
-                    <!-- Add more options -->
-                </select>
-                <!-- Add more control elements -->
-            </div>
-            <div class="preview-area">
-                <img id="previewImage" src="" alt="Preview">
-                <div class="design-overlay"></div>
-            </div>
         </div>
-    </section>
+        <!-- Desgins-Controls -->
+<div class="design-controls">
+    <div class="control-group">
+        <label for="designStyle">Garden Style</label>
+        <select id="designStyle">
+            <option value="">Select a style</option>
+            <option value="modern">Modern Minimalist</option>
+            <option value="tropical">Tropical Paradise</option>
+            <option value="zen">Zen Garden</option>
+        </select>
+    </div>
 
-    <!-- More sections following similar structure -->
+    <div class="control-group">
+        <label for="overlayOpacity">Design Intensity</label>
+        <input type="range" id="overlayOpacity" min="0.1" max="1" step="0.1" value="0.7">
+    </div>
+
+    <div class="preview-container">
+        <canvas id="designCanvas"></canvas>
+    </div>
+</div>
+      </div>
+    </div>
+</section>
+
+<!-- Scripts -->
+ script src="./js/service.js"></script>
+<script src="./js/navbar.js"></script>
+<script  type="module" src="./js/plantGrid.js"></script>
+<script type="module"  src="./data/plantsData.js"></script>
 </body>
-<script src="./js/service.js"></script>
 </html>

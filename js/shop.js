@@ -1,27 +1,26 @@
-
-// Cart and Product State Management
 let cart = [];
 const DISCORD_WEBHOOK_URL = 'https://discordapp.com/api/webhooks/1346746342424449055/L9biBgv3aEBzu37vmjKN_TPUlf2I8NRrAGRdckp3ueOhxLAer9Pk47Qjy-aoXNAPeFlA';
+
 document.addEventListener('DOMContentLoaded', () => {
     const cartIcon = document.querySelector('.cart-icon');
     const cartSidebar = document.querySelector('.cart-sidebar');
     const closeCart = document.querySelector('.close-cart');
     const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
     const checkoutBtn = document.querySelector('.checkout-btn');
-    // Cart Toggle
+
     cartIcon.addEventListener('click', () => cartSidebar.classList.add('active'));
     closeCart.addEventListener('click', () => cartSidebar.classList.remove('active'));
-    // Add to Cart Functionality
+
     addToCartButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             const productCard = e.target.closest('.product-card');
             showQuantityModal(productCard);
         });
     });
-    // Checkout Button
+
     checkoutBtn.addEventListener('click', showCheckoutInterface);
 });
-// Quantity Modal
+
 function showQuantityModal(productCard) {
     const product = {
         name: productCard.querySelector('h3').textContent,
@@ -45,7 +44,7 @@ function showQuantityModal(productCard) {
         </div>
     `;
     document.body.appendChild(modal);
-    // Quantity Controls
+
     const quantityInput = modal.querySelector('.quantity-input');
     modal.querySelector('.minus').addEventListener('click', () => {
         if (quantityInput.value > 1) quantityInput.value--;
@@ -53,17 +52,14 @@ function showQuantityModal(productCard) {
     modal.querySelector('.plus').addEventListener('click', () => {
         if (quantityInput.value < 99) quantityInput.value++;
     });
-    // Button Actions
-    modal.querySelector('.cancel-btn').addEventListener('click', () => {
-        modal.remove();
-    });
+    modal.querySelector('.cancel-btn').addEventListener('click', () => modal.remove());
     modal.querySelector('.confirm-btn').addEventListener('click', () => {
         addToCart(product, parseInt(quantityInput.value));
         modal.remove();
         updateCartDisplay();
     });
 }
-// Cart Management
+
 function addToCart(product, quantity) {
     const existingItem = cart.find(item => item.name === product.name);
     if (existingItem) {
@@ -73,14 +69,18 @@ function addToCart(product, quantity) {
     }
     updateCartCount();
 }
+
 function updateCartCount() {
-    const cartCount = document.querySelector('.cart-count');
-    cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+    const cartCount = document.querySelectorAll('.cart-count');
+    cartCount.forEach(span => {
+        span.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+    });
 }
+
 function updateCartDisplay() {
     const cartItems = document.querySelector('.cart-items');
     const cartTotal = document.querySelector('.cart-total h4 span');
-    
+
     cartItems.innerHTML = cart.map(item => `
         <div class="cart-item">
             <img src="${item.image}" alt="${item.name}">
@@ -91,20 +91,23 @@ function updateCartDisplay() {
             <button class="remove-item" onclick="removeFromCart('${item.name}')">×</button>
         </div>
     `).join('');
+
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     cartTotal.textContent = `$${total.toFixed(2)}`;
 }
+
 function removeFromCart(productName) {
     cart = cart.filter(item => item.name !== productName);
     updateCartDisplay();
     updateCartCount();
 }
-// Checkout Interface
+
 function showCheckoutInterface() {
     if (cart.length === 0) {
         alert('Your cart is empty!');
         return;
     }
+
     const checkoutInterface = document.createElement('div');
     checkoutInterface.className = 'checkout-interface';
     checkoutInterface.innerHTML = `
@@ -182,15 +185,14 @@ function showCheckoutInterface() {
                     </div>
                 </div>
                 <button class="place-order-btn">Place Order</button>
+                <button class="print-receipt-btn">Print Receipt</button>
             </div>
         </div>
     `;
+
     document.body.appendChild(checkoutInterface);
-    // Close Button
-    checkoutInterface.querySelector('.close-checkout').addEventListener('click', () => {
-        checkoutInterface.remove();
-    });
-    // Place Order
+    checkoutInterface.querySelector('.close-checkout').addEventListener('click', () => checkoutInterface.remove());
+
     checkoutInterface.querySelector('.place-order-btn').addEventListener('click', () => {
         const form = document.getElementById('checkout-form');
         if (form.checkValidity()) {
@@ -200,8 +202,16 @@ function showCheckoutInterface() {
             form.reportValidity();
         }
     });
+
+    checkoutInterface.querySelector('.print-receipt-btn').addEventListener('click', () => {
+        const printContent = checkoutInterface.querySelector('.checkout-summary').innerHTML;
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write('<html><head><title>Order Receipt</title></head><body>' + printContent + '</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    });
 }
-// Send Order to Discord
+
 async function sendOrderToDiscord(formData) {
     const orderData = {
         content: null,
@@ -233,14 +243,14 @@ async function sendOrderToDiscord(formData) {
             timestamp: new Date().toISOString()
         }]
     };
+
     try {
         const response = await fetch(DISCORD_WEBHOOK_URL, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(orderData)
         });
+
         if (response.ok) {
             alert('Order placed successfully!');
             cart = [];
@@ -256,42 +266,3 @@ async function sendOrderToDiscord(formData) {
         console.error('Error:', error);
     }
 }
-
-    // Category Filtering
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const productCards = document.querySelectorAll('.product-card');
-
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
-
-            const category = button.dataset.category;
-
-            // Show/hide products based on category
-            productCards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-    // Add this CSS animation
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-`;
-document.head.appendChild(style);
