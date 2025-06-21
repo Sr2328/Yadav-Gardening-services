@@ -8,30 +8,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/about.css">
+    <link rel=" stylesheet" href="./css/navbar.css">
 </head>
 <body>
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo">
-                <img src="./IMAGES/Green White Modern Clean Botanical Garden Logo.png" alt="YGS Logo" class="logo-img">
-                <div class="logo-text">
-                    <span class="brand">YGS</span>
-                    <span class="tagline">Transform Your Garden</span>
-                </div>
-                <button class="nav-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-            </div>
+        <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="./ygs-img/elements/Sophisticated Garden Design Logo.png" alt="YGS Logo">
+                <span>TGG</span>
+            </a>
+        </div>
+        <div class="nav-menu">
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="./services.html" class="nav-link">Services</a></li>
+                <li><a href="./pages/design.html" class="nav-link">Designs</a></li>
+                <li><a href="./shop.html" class="nav-link">Shop</a></li>
+                <li><a href="./about.html" class="nav-link active">About</a></li>
+                <li><a href="./contact.html" class="nav-link">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+        </div>
+
+        <div class="nav-actions">
+            <button class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </button>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
     <main>
 
         <!-- Hero-Section -->

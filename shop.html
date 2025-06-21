@@ -8,16 +8,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/shop.css">
+    <link rel="=stylesheet" href="./css/print.css" media="print">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">Yadav Gardening</div>
+             <div class="nav-logo">
+            <a href="index.html">
+                <img src="./ygs-img/elements/Sophisticated Garden Design Logo.png" alt="TGG Logo">
+                <span>TGG</span>
+            </a>
+        </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="#shop">Shop</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./pages/design.html">Designs</a></li>
+                <li><a href="#shop" class="nav-link active" >Shop</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
             </ul>
             <div class="cart-icon">
                 <i class="fas fa-shopping-cart"></i>
@@ -41,10 +49,50 @@
 
     <!-- Main-Shop-Container -->
     <main class="shop-container">
-        <section class="shop-hero">
-            <h1>Shop Our Collection</h1>
-            <p>Quality plants, tools, and supplies for your garden</p>
-        </section>
+    <!-- Replace existing shop-hero section -->
+<section class="shop-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Shop Our <span class="highlight">Collection</span></h1>
+        <p>Discover premium plants, tools, and supplies for your dream garden</p>
+        <div class="search-wrapper">
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search for plants, tools, and more...">
+                <button class="search-btn">Search</button>
+            </div>
+            <div class="popular-searches">
+                <span>Popular:</span>
+                <a href="#indoor">Indoor Plants</a>
+                <a href="#seasonal">Seasonal</a>
+                <a href="#tools">Tools</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <i class="fas fa-leaf"></i>
+                <div class="stat-info">
+                    <h4>500+</h4>
+                    <p>Plant Varieties</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-truck"></i>
+                <div class="stat-info">
+                    <h4>Fast</h4>
+                    <p>Delivery</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-certificate"></i>
+                <div class="stat-info">
+                    <h4>100%</h4>
+                    <p>Quality</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- Category-Filters -->
         <div class="category-filters">

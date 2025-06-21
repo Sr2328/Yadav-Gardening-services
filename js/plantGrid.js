@@ -1,4 +1,4 @@
-import { plants } from '../data/plantsData';
+import { plantsData } from '../data/plantsData.js';
 
 class PlantGrid {
     constructor() {
@@ -10,16 +10,13 @@ class PlantGrid {
     init() {
         this.plantGrid = document.getElementById('plantGrid');
         this.noResults = document.getElementById('noResults');
-        
-        // Initialize filters
+
         this.initializeFilters();
-        
-        // Render initial grid
         this.renderPlants();
     }
 
     initializeFilters() {
-        // Category filters
+        // Category button filters
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -30,15 +27,23 @@ class PlantGrid {
 
         // Dropdown filters
         ['sunlightFilter', 'waterFilter'].forEach(filterId => {
-            document.getElementById(filterId).addEventListener('change', () => this.applyFilters());
+            const element = document.getElementById(filterId);
+            if (element) {
+                element.addEventListener('change', () => this.applyFilters());
+            }
         });
 
         // Price filter
-        document.getElementById('priceFilter').addEventListener('input', () => this.applyFilters());
+        const priceFilter = document.getElementById('priceFilter');
+        if (priceFilter) {
+            priceFilter.addEventListener('input', () => this.applyFilters());
+        }
     }
 
     applyFilters() {
-        const category = document.querySelector('.filter-btn.active').dataset.filter;
+        const categoryBtn = document.querySelector('.filter-btn.active');
+        const category = categoryBtn ? categoryBtn.dataset.filter : 'all';
+
         const sunlight = document.getElementById('sunlightFilter').value;
         const water = document.getElementById('waterFilter').value;
         const maxPrice = parseFloat(document.getElementById('priceFilter').value);
@@ -57,14 +62,14 @@ class PlantGrid {
 
     renderPlants() {
         this.plantGrid.innerHTML = '';
-        
+
         if (this.filteredPlants.length === 0) {
             this.noResults.classList.remove('hidden');
             return;
         }
 
         this.noResults.classList.add('hidden');
-        
+
         this.filteredPlants.forEach((plant, index) => {
             const card = this.createPlantCard(plant, index);
             this.plantGrid.appendChild(card);
@@ -75,7 +80,7 @@ class PlantGrid {
         const card = document.createElement('div');
         card.className = 'plant-card';
         card.style.animationDelay = `${index * 0.1}s`;
-        
+
         card.innerHTML = `
             <div class="plant-image">
                 <img src="${plant.image}" alt="${plant.name}">
@@ -109,18 +114,23 @@ class PlantGrid {
     }
 }
 
+// Initialize once DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     new PlantGrid();
 });
+
+// Global add-to-cart button handler
 window.handleAddToCart = (plantId) => {
     const button = document.querySelector(`button[onclick="handleAddToCart(${plantId})"]`);
-    button.innerHTML = '✓ Added';
-    button.style.background = '#388E3C';
-    
-    setTimeout(() => {
-        button.innerHTML = 'Add to Cart';
-        button.style.background = '';
-    }, 2000);
-    
-    console.log(`Added plant ${plantId} to cart`);
+    if (button) {
+        button.innerHTML = '✓ Added';
+        button.style.background = '#388E3C';
+
+        setTimeout(() => {
+            button.innerHTML = 'Add to Cart';
+            button.style.background = '';
+        }, 2000);
+
+        console.log(`Added plant ${plantId} to cart`);
+    }
 };

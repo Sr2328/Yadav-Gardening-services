@@ -265,4 +265,78 @@ async function sendOrderToDiscord(formData) {
         alert('Error placing order. Please try again.');
         console.error('Error:', error);
     }
+    function printReceipt() {
+    const receiptContent = document.querySelector('.print-receipt-btn').addEventListener('click', printReceipt);
+
+    const printWindow = window.open('', '', 'width=800,height=600');
+    printWindow.document.write(`
+        <html>
+        <head>
+            <title>Order Receipt</title>
+            <style>
+                body {
+                    font-family: 'Poppins', sans-serif;
+                    padding: 40px;
+                    color: #000;
+                }
+                .checkout-summary {
+                    width: 100%;
+                    max-width: 700px;
+                    margin: auto;
+                    background: #fff;
+                }
+                .checkout-summary h3 {
+                    font-size: 24px;
+                    border-bottom: 1px solid #333;
+                    padding-bottom: 10px;
+                    margin-bottom: 20px;
+                }
+                .checkout-item {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 15px;
+                    border-bottom: 1px dashed #ccc;
+                    padding-bottom: 10px;
+                }
+                .checkout-item img {
+                    max-height: 60px;
+                    margin-right: 15px;
+                }
+                .checkout-item .item-details h4 {
+                    font-size: 18px;
+                    margin: 0;
+                }
+                .checkout-item .item-quantity,
+                .item-price {
+                    font-size: 14px;
+                    color: #555;
+                }
+                .order-total {
+                    margin-top: 30px;
+                    font-size: 16px;
+                    border-top: 1px solid #000;
+                    padding-top: 10px;
+                }
+                .total-row {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 5px 0;
+                }
+                .print-hidden {
+                    display: none;
+                }
+            </style>
+        </head>
+        <body>
+            ${receiptContent}
+        </body>
+        </html>
+    `);
+
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.print();
+    printWindow.close();
+}
 }
