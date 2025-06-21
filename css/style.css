@@ -2680,3 +2680,299 @@ footer::before {
       font-size: 0.9rem;
   }
 }
+/* choose-us-css */
+.why-choose-us {
+  background: linear-gradient(120deg, #e8f5e9 0%, #f8f9fa 100%);
+  padding: 4rem 2rem 3rem 2rem;
+  text-align: center;
+}
+
+.why-choose-us .section-title {
+  color: #2E7D32;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
+}
+
+.why-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.why-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(46, 125, 50, 0.08);
+  padding: 2.5rem 2rem 2rem 2rem;
+  flex: 1 1 260px;
+  max-width: 340px;
+  min-width: 240px;
+  margin: 0.5rem 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.why-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(46, 125, 50, 0.15);
+}
+
+.why-icon {
+  font-size: 2.7rem;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  background: #A8D5BA;
+  color: #2E7D32;
+  box-shadow: 0 2px 10px rgba(46, 125, 50, 0.07);
+}
+
+.why-icon.eco {
+  background: linear-gradient(135deg, #A8D5BA 60%, #e8f5e9 100%);
+}
+.why-icon.expert {
+  background: linear-gradient(135deg, #f8bb86 60%, #fffde7 100%);
+  color: #6B4F3F;
+}
+.why-icon.reliable {
+  background: linear-gradient(135deg, #b3e5fc 60%, #e1f5fe 100%);
+  color: #2E7D32;
+}
+
+.why-card h3 {
+  font-size: 1.25rem;
+  color: #2E7D32;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.why-card p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .why-grid {
+    gap: 1.5rem;
+  }
+  .why-card {
+    max-width: 100%;
+    min-width: 180px;
+    padding: 2rem 1.2rem 1.5rem 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .why-choose-us {
+    padding: 2.5rem 0.5rem 2rem 0.5rem;
+  }
+  .why-grid {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .why-card {
+    margin: 0 auto;
+    width: 100%;
+    min-width: 0;
+    padding: 1.5rem 0.7rem 1.2rem 0.7rem;
+  }
+  .why-choose-us .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
+/* Portfolio-css */
+/* Portfolio Flip Card Section */
+.portfolio {
+  background: linear-gradient(120deg, #f8f9fa 60%, #e8f5e9 100%);
+  padding: 4rem 2rem 3rem 2rem;
+  text-align: center;
+}
+
+.portfolio .section-title {
+  color: #2E7D32;
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
+}
+
+.portfolio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.portfolio-flip-card {
+  background: transparent;
+  width: 320px;
+  height: 370px;
+  perspective: 1200px;
+  margin-bottom: 1rem;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(.4,2,.6,1);
+  transform-style: preserve-3d;
+}
+
+.portfolio-flip-card:hover .flip-inner,
+.portfolio-flip-card:focus-within .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(46, 125, 50, 0.10);
+  overflow: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flip-front img, .flip-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 1;
+  transition: transform 0.3s;
+}
+
+.flip-front {
+  background: #fff;
+  z-index: 2;
+}
+
+.flip-back {
+  background: #fff;
+  transform: rotateY(180deg);
+  z-index: 3;
+  justify-content: flex-end;
+}
+
+.flip-label {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(46,125,50,0.92);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.3rem 1.1rem;
+  border-radius: 16px;
+  z-index: 2;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(46,125,50,0.08);
+  text-transform: uppercase;
+}
+
+.flip-label.after {
+  background: #A8D5BA;
+  color: #2E7D32;
+  left: unset;
+  right: 18px;
+}
+
+.flip-info {
+  position: relative;
+  z-index: 2;
+  background: rgba(255,255,255,0.97);
+  border-radius: 0 0 18px 18px;
+  padding: 1.1rem 1rem 1rem 1rem;
+  margin-top: auto;
+  box-shadow: 0 -2px 12px rgba(46,125,50,0.06);
+  text-align: left;
+}
+
+.portfolio-location {
+  font-size: 0.98rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+  color: #2E7D32;
+}
+
+.portfolio-title {
+  font-size: 1.18rem;
+  color: #2E7D32;
+  font-weight: 600;
+  margin: 0.2rem 0 0.5rem 0;
+  letter-spacing: 0.5px;
+}
+
+.portfolio-desc {
+  font-size: 0.97rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .portfolio-grid {
+    gap: 1.2rem;
+  }
+  .portfolio-flip-card {
+    width: 90vw;
+    max-width: 340px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio {
+    padding: 2rem 0.2rem 1.2rem 0.2rem;
+  }
+  .portfolio-flip-card {
+    width: 98vw;
+    max-width: 98vw;
+    height: 270px;
+  }
+  .flip-label, .flip-label.after {
+    font-size: 0.92rem;
+    padding: 0.2rem 0.7rem;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+  }
+  .flip-info {
+    padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+  }
+  .portfolio-title {
+    font-size: 1rem;
+  }
+  .portfolio-desc {
+    font-size: 0.92rem;
+  }
+}
