@@ -1,0 +1,93 @@
+.contact-hero-alt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f0fdf4;
+  padding: 4rem 10%;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.hero-left {
+  flex: 1;
+  max-width: 500px;
+}
+
+.hero-left h1 {
+  font-size: 2.8rem;
+  color: #2e7d32;
+  margin-bottom: 1rem;
+}
+
+.hero-left p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #4b5563;
+}
+
+.btn-contact {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background-color: #4caf50;
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-contact:hover {
+  background-color: #388e3c;
+}
+
+.hero-right {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-right img {
+  max-width: 100%;
+  height: auto;
+  animation: float 4s ease-in-out infinite;
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  background: #dcedc8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #2e7d32;
+  margin-bottom: 1rem;
+}
+
+/* Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-hero-alt {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .hero-left h1 {
+    font-size: 2rem;
+  }
+
+  .hero-left p {
+    font-size: 1rem;
+  }
+}
