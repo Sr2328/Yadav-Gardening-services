@@ -110,44 +110,6 @@
     width: 100%;
 }
 
-/* Action Buttons */
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.search-btn,
-.cart-btn {
-    background: none;
-    border: none;
-    font-size: 1.25rem;
-    color: var(--text-dark);
-    cursor: pointer;
-    padding: 0.5rem;
-    transition: var(--transition);
-    position: relative;
-}
-
-.search-btn:hover,
-.cart-btn:hover {
-    color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-.cart-count {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: var(--primary-color);
-    color: var(--white);
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.15rem 0.45rem;
-    border-radius: 20px;
-    min-width: 20px;
-    text-align: center;
-}
 
 /* Hamburger Menu */
 .hamburger {
