@@ -7,10 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeCart = document.querySelector('.close-cart');
     const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
     const checkoutBtn = document.querySelector('.checkout-btn');
+    const searchInput = document.querySelector('.search-bar input[type="text"]');
+    const productCards = document.querySelectorAll('.product-card');
 
-    cartIcon.addEventListener('click', () => cartSidebar.classList.add('active'));
-    closeCart.addEventListener('click', () => cartSidebar.classList.remove('active'));
+    // Cart open/close
+    cartIcon?.addEventListener('click', () => cartSidebar?.classList.add('active'));
+    closeCart?.addEventListener('click', () => cartSidebar?.classList.remove('active'));
 
+    // Add to cart button handler
     addToCartButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             const productCard = e.target.closest('.product-card');
@@ -18,15 +22,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    checkoutBtn.addEventListener('click', showCheckoutInterface);
+    // Checkout button
+    checkoutBtn?.addEventListener('click', showCheckoutInterface);
+
+    // Product Search
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.trim().toLowerCase();
+
+            productCards.forEach(card => {
+                const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                const desc = card.querySelector('.product-description')?.textContent.toLowerCase() || '';
+                const company = card.querySelector('.product-company')?.textContent.toLowerCase() || '';
+
+                const match = title.includes(query) || desc.includes(query) || company.includes(query);
+                card.style.display = match ? '' : 'none';
+            });
+        });
+    }
 });
 
+// Quantity Modal
 function showQuantityModal(productCard) {
     const product = {
         name: productCard.querySelector('h3').textContent,
         price: parseFloat(productCard.querySelector('.price').textContent.replace('$', '')),
         image: productCard.querySelector('.product-image img').src
     };
+
     const modal = document.createElement('div');
     modal.className = 'quantity-modal';
     modal.innerHTML = `
@@ -60,6 +83,7 @@ function showQuantityModal(productCard) {
     });
 }
 
+// Cart logic
 function addToCart(product, quantity) {
     const existingItem = cart.find(item => item.name === product.name);
     if (existingItem) {
@@ -102,6 +126,7 @@ function removeFromCart(productName) {
     updateCartCount();
 }
 
+// Checkout UI and Submission
 function showCheckoutInterface() {
     if (cart.length === 0) {
         alert('Your cart is empty!');
@@ -189,8 +214,8 @@ function showCheckoutInterface() {
             </div>
         </div>
     `;
-
     document.body.appendChild(checkoutInterface);
+
     checkoutInterface.querySelector('.close-checkout').addEventListener('click', () => checkoutInterface.remove());
 
     checkoutInterface.querySelector('.place-order-btn').addEventListener('click', () => {
@@ -206,12 +231,69 @@ function showCheckoutInterface() {
     checkoutInterface.querySelector('.print-receipt-btn').addEventListener('click', () => {
         const printContent = checkoutInterface.querySelector('.checkout-summary').innerHTML;
         const printWindow = window.open('', '_blank');
-        printWindow.document.write('<html><head><title>Order Receipt</title></head><body>' + printContent + '</body></html>');
+        printWindow.document.write(`
+            <html>
+            <head>
+                <title>Order Receipt</title>
+                <style>
+                    body {
+                        font-family: 'Poppins', sans-serif;
+                        padding: 40px;
+                        color: #000;
+                    }
+                    .checkout-summary {
+                        max-width: 700px;
+                        margin: auto;
+                        background: #fff;
+                    }
+                    .checkout-summary h3 {
+                        font-size: 24px;
+                        border-bottom: 1px solid #333;
+                        padding-bottom: 10px;
+                        margin-bottom: 20px;
+                    }
+                    .checkout-item {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 15px;
+                        border-bottom: 1px dashed #ccc;
+                        padding-bottom: 10px;
+                    }
+                    .checkout-item img {
+                        max-height: 60px;
+                        margin-right: 15px;
+                    }
+                    .checkout-item .item-details h4 {
+                        font-size: 18px;
+                        margin: 0;
+                    }
+                    .item-price {
+                        font-size: 14px;
+                        color: #555;
+                    }
+                    .order-total {
+                        margin-top: 30px;
+                        font-size: 16px;
+                        border-top: 1px solid #000;
+                        padding-top: 10px;
+                    }
+                    .total-row {
+                        display: flex;
+                        justify-content: space-between;
+                        margin: 5px 0;
+                    }
+                </style>
+            </head>
+            <body>${printContent}</body>
+            </html>
+        `);
         printWindow.document.close();
         printWindow.print();
     });
 }
 
+// Discord order webhook
 async function sendOrderToDiscord(formData) {
     const orderData = {
         content: null,
@@ -256,8 +338,8 @@ async function sendOrderToDiscord(formData) {
             cart = [];
             updateCartDisplay();
             updateCartCount();
-            document.querySelector('.checkout-interface').remove();
-            document.querySelector('.cart-sidebar').classList.remove('active');
+            document.querySelector('.checkout-interface')?.remove();
+            document.querySelector('.cart-sidebar')?.classList.remove('active');
         } else {
             throw new Error('Failed to place order');
         }
@@ -265,78 +347,4 @@ async function sendOrderToDiscord(formData) {
         alert('Error placing order. Please try again.');
         console.error('Error:', error);
     }
-    function printReceipt() {
-    const receiptContent = document.querySelector('.print-receipt-btn').addEventListener('click', printReceipt);
-
-    const printWindow = window.open('', '', 'width=800,height=600');
-    printWindow.document.write(`
-        <html>
-        <head>
-            <title>Order Receipt</title>
-            <style>
-                body {
-                    font-family: 'Poppins', sans-serif;
-                    padding: 40px;
-                    color: #000;
-                }
-                .checkout-summary {
-                    width: 100%;
-                    max-width: 700px;
-                    margin: auto;
-                    background: #fff;
-                }
-                .checkout-summary h3 {
-                    font-size: 24px;
-                    border-bottom: 1px solid #333;
-                    padding-bottom: 10px;
-                    margin-bottom: 20px;
-                }
-                .checkout-item {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-bottom: 15px;
-                    border-bottom: 1px dashed #ccc;
-                    padding-bottom: 10px;
-                }
-                .checkout-item img {
-                    max-height: 60px;
-                    margin-right: 15px;
-                }
-                .checkout-item .item-details h4 {
-                    font-size: 18px;
-                    margin: 0;
-                }
-                .checkout-item .item-quantity,
-                .item-price {
-                    font-size: 14px;
-                    color: #555;
-                }
-                .order-total {
-                    margin-top: 30px;
-                    font-size: 16px;
-                    border-top: 1px solid #000;
-                    padding-top: 10px;
-                }
-                .total-row {
-                    display: flex;
-                    justify-content: space-between;
-                    margin: 5px 0;
-                }
-                .print-hidden {
-                    display: none;
-                }
-            </style>
-        </head>
-        <body>
-            ${receiptContent}
-        </body>
-        </html>
-    `);
-
-    printWindow.document.close();
-    printWindow.focus();
-    printWindow.print();
-    printWindow.close();
-}
 }
