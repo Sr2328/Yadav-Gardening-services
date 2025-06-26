@@ -50,11 +50,7 @@ body {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.7),
-        rgba(0, 0, 0, 0.4)
-    );
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
     z-index: 2;
 }
 
@@ -73,14 +69,15 @@ body {
 }
 
 .hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.2rem, 6vw, 4rem);
     line-height: 1.2;
     margin-bottom: 1.5rem;
     animation: fadeInUp 0.8s ease-out;
+    word-wrap: break-word;
 }
 
 .hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     max-width: 700px;
     margin-bottom: 3rem;
     opacity: 0.9;
@@ -104,6 +101,7 @@ body {
     border-radius: 8px;
     backdrop-filter: blur(10px);
     transition: transform 0.3s ease;
+    text-align: left;
 }
 
 .feature:hover {
@@ -127,9 +125,11 @@ body {
     animation: fadeInUp 0.8s ease-out 0.6s backwards;
 }
 
-.cta-primary, .cta-secondary {
+.cta-primary,
+.cta-secondary {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     padding: 1rem 2rem;
     border-radius: 50px;
@@ -137,6 +137,8 @@ body {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .cta-primary {
@@ -173,7 +175,7 @@ body {
     }
 }
 
-/* Responsive Design */
+/* Medium Devices (Tablets, small laptops) */
 @media (max-width: 768px) {
     .hero-content {
         text-align: center;
@@ -183,13 +185,12 @@ body {
     .key-features {
         grid-template-columns: 1fr;
         max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto;
     }
 
     .hero-buttons {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
         max-width: 400px;
         margin: 0 auto;
     }
@@ -199,20 +200,50 @@ body {
     }
 }
 
+/* Small Devices (Mobile phones) */
 @media (max-width: 480px) {
     .hero h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-top: 40px;
     }
 
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
-    .cta-primary, .cta-secondary {
-        padding: 0.8rem 1.5rem;
+    .cta-primary,
+    .cta-secondary {
+        padding: 0.8rem 1.2rem;
         font-size: 0.9rem;
     }
+
+    .key-features {
+        gap: 1rem;
+    }
 }
+
+/* Extra Small Devices (like iPhone SE, older Androids) */
+@media (max-width: 360px) {
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .feature span {
+        font-size: 0.85rem;
+    }
+
+    .hero-content {
+        margin-top: 10px;
+        padding: 0.8rem;
+    }
+}
+
 /* Services Section */
 .services {
     padding: 5rem 2rem;
